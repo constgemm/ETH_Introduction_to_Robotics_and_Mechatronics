@@ -7,7 +7,7 @@ void setup() {
   // setup the serial connection
   Serial.begin(115200);
   // the default resolution of the ADC is set to 10 bits (maximum is 12 bits)
-  //analogReadResolution(12);
+  //analogReadResolution(12); // this will only work if you have the right board connected, I didn't so I uncommented it. The right solution is without the comment tag.
   pinMode(A3, INPUT);
 
 }
