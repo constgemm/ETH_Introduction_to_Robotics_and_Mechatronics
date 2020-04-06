@@ -43,4 +43,10 @@ We will learn:
 square-wave signals.
 
 Lab03_2 (week 4):
-This Prelab will help you understand and apply the concepts of the Digital Filtering Lecture
+This Prelab will help you understand and apply the concepts of the Digital Filtering Lecture.
+
+Lab04
+In this lab, we will introduce servo motors and gears by solving some simple taks. We will learn:
+* How servo motors work and how to control them using the Arduino interface.
+* How to increase/decrease the torque and run length of the servo motors using combinations of gears.
+* How to design gear trains for specific applications and requirements
