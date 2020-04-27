@@ -14,23 +14,27 @@ image_original = imread('image1.jpg');
 imshow(image_original)
 % convert your image into hsv color space (use function rgb2hsv())
 image_hsv = rgb2hsv(image_original);
+figure()
 imshow(image_hsv)
 
 %% plot the grayscale images of hue, saturation and value of your image seperately (use imshow() again)
-close all
+
 % image_grey = rgb2gray(image_original);
 
 image_hue = image_hsv(:, :, 1);
-figure('Name', 'greyscale of hue')
+figure()
 imshow(image_hue)
+title('greyscale of hue')
 
 image_saturation = image_hsv(:, :, 2);
-figure('Name', 'greyscale of saturation')
+figure()
 imshow(image_saturation)
+title('greyscale of saturation')
 
 image_value = image_hsv(:, :, 3);
-figure('Name', 'greyscale of value')
+figure()
 imshow(image_value)
+title('greyscale of value')
 %% use the hue image you just plotted to find the hue lower and upper bounds for each color
 
 % const
@@ -100,7 +104,6 @@ upper_bound_sat = max(max(image_saturation));
 
 %% use these tresholds to create a mask for each color, plot your three masks seperately (for each
 % color you should have a black-white image showing only the blob of that color)
-close all
 red_mask([1:1080], [1:1680]) = zeros;
 green_mask([1:1080], [1:1680]) = zeros;
 blue_mask([1:1080], [1:1680]) = zeros;
@@ -122,39 +125,73 @@ for j = 1:1080
         end
     end
 end
-rgb_mask(:, :, 1) = red_mask;
-rgb_mask(:, :, 2) = green_mask;
-rgb_mask(:, :, 3) = blue_mask;
 
-figure('Name', 'red mask')
+
+figure()
 imshow(red_mask)
 title('red mask')
-figure('Name', 'green mask')
+figure()
 imshow(green_mask)
 title('green mask')
-figure('Name', 'blue mask')
+figure()
 imshow(blue_mask)
 title('blue mask')
-% figure('Name', 'RGB mask')
-% imshow(rgb_mask)
-% title('rgb mask')
 
 clear j i temp sat_factor
 
+%% rgb mask
+rgb_mask(:, :, 1) = red_mask;
+rgb_mask(:, :, 2) = green_mask;
+rgb_mask(:, :, 3) = blue_mask;
+figure()
+imshow(rgb_mask)
+title('rgb mask')
+
+
 %% find the centroid of the three colors using their respective masks ( use function regionprops();  be aware that it can return more than one centroid  )
 
-center_red=regionprops(red_mask, 'centroid');
-xy_centroid_red=cat(1, center_red.Centroid);
-x_centroid = xy_centroid(:,1);
-y_centroid = xy_centroid(:,2);
+centre_red = regionprops(red_mask, 'centroid');
+xy_centroid_red = cat(1, centre_red.Centroid);
+% x_centroid_red = xy_centroid_red(:, 1);
+% y_centroid_red = xy_centroid_red(:, 2);
+
+centre_green = regionprops(green_mask, 'centroid');
+xy_centroid_green = cat(1, centre_green.Centroid);
+% x_centroid_green = xy_centroid_green(:, 1);
+% y_centroid_green = xy_centroid_green(:, 2);
+
+centre_blue = regionprops(blue_mask, 'centroid');
+xy_centroid_blue = cat(1, centre_blue.Centroid);
+% x_centroid_blue = xy_centroid_blue(:,1);
+% y_centroid_blue = xy_centroid_blue(:,2);
+
+
 %% plot the original image with the center of the centroid (use function insertMarker())
+% imshow(red_mask)
+% hold on
+% plot(x_centroid_red, y_centroid_red, 'r*')
+% hold off
+% 
+% imshow(green_mask)
+% hold on
 
+% red_mask_mk = insertMarker(red_mask, xy_centroid_red);
+% green_mask_mk = insertMarker(green_mask, xy_centroid_green);
+% blue_mask_mk = insertMarker(blue_mask, xy_centroid_blue);
+% figure()
+% imshow(red_mask_mk)
+% hold on
+% imshow(green_mask_mk)
+% imshow(blue_mask_mk)
+% hold off
 
+marker_position = [xy_centroid_red; xy_centroid_green; xy_centroid_blue];
 
+marker_colour = {'black', 'black', 'white'};
+image_original_mk = insertMarker(image_original, marker_position, 'color', marker_colour);
 
-
-
-
+figure()
+imshow(image_original_mk)
 
 
 
