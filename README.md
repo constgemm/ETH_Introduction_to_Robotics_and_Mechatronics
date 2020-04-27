@@ -50,3 +50,7 @@ In this lab, we will introduce servo motors and gears by solving some simple tak
 * How servo motors work and how to control them using the Arduino interface.
 * How to increase/decrease the torque and run length of the servo motors using combinations of gears.
 * How to design gear trains for specific applications and requirements
+
+Lab05
+In this lab, you will learn to implement basic algorithms in computer vision for robotics. We will use
+the OpenCV library to detect and track objects by using two different tracking algorithms.
