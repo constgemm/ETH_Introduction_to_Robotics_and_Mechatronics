@@ -1,5 +1,7 @@
 % tabula rasa:
-clc; clear all; close all;
+% clc;
+clear all;
+close all;
 
 %% This is to solve Prelab Q1:
 % Write a MATLAB script that reads the image, plots the three hsv channels seperately, uses threshhold on hue and saturation to find the red, green and blue shapes independently and determines the centroid of the object
