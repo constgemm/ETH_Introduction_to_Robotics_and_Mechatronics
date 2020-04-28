@@ -167,27 +167,9 @@ xy_centroid_blue = cat(1, centre_blue.Centroid);
 
 
 %% plot the original image with the center of the centroid (use function insertMarker())
-% imshow(red_mask)
-% hold on
-% plot(x_centroid_red, y_centroid_red, 'r*')
-% hold off
-% 
-% imshow(green_mask)
-% hold on
-
-% red_mask_mk = insertMarker(red_mask, xy_centroid_red);
-% green_mask_mk = insertMarker(green_mask, xy_centroid_green);
-% blue_mask_mk = insertMarker(blue_mask, xy_centroid_blue);
-% figure()
-% imshow(red_mask_mk)
-% hold on
-% imshow(green_mask_mk)
-% imshow(blue_mask_mk)
-% hold off
-
 marker_position = [xy_centroid_red; xy_centroid_green; xy_centroid_blue];
-
 marker_colour = {'black', 'black', 'white'};
+
 image_original_mk = insertMarker(image_original, marker_position, 'color', marker_colour);
 
 figure()
