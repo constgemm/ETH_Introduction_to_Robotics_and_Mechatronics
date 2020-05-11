@@ -26,10 +26,10 @@ sys = tf(numerator, denominator);
 
 opt = stepDataOptions('StepAmplitude', 0.1);
 
+subplot(2,1,1);
 impulse(sys);
-
-step(sys, opt)
-
+subplot(2,1,2);
+step(sys, opt);
 
 % open loop impulse and step response in one figure (two subplots):
 
