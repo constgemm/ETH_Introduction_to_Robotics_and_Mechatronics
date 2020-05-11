@@ -16,8 +16,8 @@ t=0:TIMESTEP:5;
 % create the transfer function of the system (you should use the tf() function):
 
 
-numerator=[30];
-denominator =[5 0 0]; 
+numerator = [30];
+denominator = [5 0 0]; 
 trans_Q1 = tf(numerator, denominator);
 
 
@@ -30,10 +30,10 @@ opt_Q1 = stepDataOptions('StepAmplitude', 0.1);
 
 % open loop impulse and step response in one figure (two subplots):
 
-subplot(2,1,1);
-impulse(trans_Q1);
-subplot(2,1,2);
-step(trans_Q1, opt_Q1);
+subplot(2,1,1)
+impulse(trans_Q1)
+subplot(2,1,2)
+step(trans_Q1, opt_Q1)
 
 
 %%%%%%%%%%%%%
@@ -42,21 +42,23 @@ step(trans_Q1, opt_Q1);
 
 % Controller Parameters:
 
-Kp=20;
-Ki=1;
-Kd=2;
-Kd_=20;
+Kp = 20;
+Ki = 1;
+Kd = 2;
+Kd_ = 20;
 
 
 % create the transfer function of the Controller:
 
+trans_Q2 = 
 
 % create the transfer function of the feedback loop
 
+trans_Q2_feedback = feedback();
 
 % Plot the closed loop step response
 
-
+step(trans_Q2_feedback)
 
 %%%%%%%%%%%%%
 % Prelab Q3 %
