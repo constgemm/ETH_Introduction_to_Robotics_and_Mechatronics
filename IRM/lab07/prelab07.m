@@ -18,22 +18,22 @@ t=0:TIMESTEP:5;
 
 numerator=[30];
 denominator =[5 0 0]; 
-sys = tf(numerator, denominator);
+trans_Q1 = tf(numerator, denominator);
 
 
 % set step options to have a step-size of 0.1 instead of 1 (standard), use
 % stepDataOptions()
 
-opt = stepDataOptions('StepAmplitude', 0.1);
+opt_Q1 = stepDataOptions('StepAmplitude', 0.1);
 
-subplot(2,1,1);
-impulse(sys);
-subplot(2,1,2);
-step(sys, opt);
+
 
 % open loop impulse and step response in one figure (two subplots):
 
-
+subplot(2,1,1);
+impulse(trans_Q1);
+subplot(2,1,2);
+step(trans_Q1, opt_Q1);
 
 
 %%%%%%%%%%%%%
