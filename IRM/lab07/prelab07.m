@@ -15,15 +15,21 @@ t=0:TIMESTEP:5;
 % Differential Equatoin of the sytem: x''(t) = 30/5*beta (t)
 % create the transfer function of the system (you should use the tf() function):
 
-s = tf('s');
-transferFunction = tf(30, 5*s^2);
 
+numerator=[30];
+denominator =[5 0 0]; 
+sys = tf(numerator, denominator);
 
 
 % set step options to have a step-size of 0.1 instead of 1 (standard), use
 % stepDataOptions()
 
-stepDataOptions('StepAmplitude', 0.1);
+opt = stepDataOptions('StepAmplitude', 0.1);
+
+impulse(sys);
+
+step(sys, opt)
+
 
 % open loop impulse and step response in one figure (two subplots):
 
