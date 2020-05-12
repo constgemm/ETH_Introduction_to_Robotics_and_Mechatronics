@@ -70,8 +70,8 @@ step(trans_Q2_feedback, opt_StepAmplitude01)
 % Kp = 20;
 % Ki = 1;
 % Kd = 2;
-Kp = 0.2;
-Ki = 0.1;
+Kp = 1.1;
+Ki = 0.2;
 Kd = 2;
 
 % create the transfer function of the Controller 
@@ -95,15 +95,17 @@ transFeedbackDelay = feedback(transForwardDelay, transDelay);
 
 % Plot the closed loop step response of the system with delay
 
+
+y_bot = 0.05;
+y_top = 0.15;
+time_bot = 0;
+time_top = 7;
+ 
 figure(3)
 step(transFeedbackDelay, opt_StepAmplitude01)
-
-% y_bot = 5;
-% y_top = -5;
-% time_bot = 4;
-% time_top = 6;
-% 
-% axis([time_bot time_top y_bot y_top])
+axis([time_bot time_top y_bot y_top])
+yline(0.1+0.001)
+yline(0.1-0.001)
 % check design criteria for "steady state" error at 5 seconds
 
 
@@ -111,8 +113,6 @@ step(transFeedbackDelay, opt_StepAmplitude01)
 %%%%%%%%%%%%%
 % Prelab Q4 %
 %%%%%%%%%%%%%
-
-
 
 % Hint: 
 % - Make use of the linearized differential equations 
@@ -130,4 +130,3 @@ step(transFeedbackDelay, opt_StepAmplitude01)
 
 %% publish
 %publish('prelab07.m','pdf')
-
