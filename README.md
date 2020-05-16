@@ -54,3 +54,9 @@ In this lab, we will introduce servo motors and gears by solving some simple tak
 Lab05
 In this lab, you will learn to implement basic algorithms in computer vision for robotics. We will use
 the OpenCV library to detect and track objects by using two different tracking algorithms.
+
+Lab06
+Design Challenge for desinfecting pubic facilities
+
+Lab07
+The purpose of this week’s lab is to model and simulate a PID controller for our ball balancing system.
