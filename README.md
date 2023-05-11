@@ -1,4 +1,4 @@
-# IRM_ETH_lab
+# Introduction to Robotics and Mechatronics at ETH (IRM)
 Lab Solutions from the 2020 IRM course. Due to cancelation of all in-class activity, we only handed in preLab work.
 (edit: with completion of the course we know to have got 91% of the full marks)
 
